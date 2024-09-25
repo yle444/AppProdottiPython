@@ -19,7 +19,7 @@ In the manager part we have the possibility:<br>
 ITA:<br>
 Nella parte store abbiamo la possibilità di acquistare dei prodotti tramite l'utilizzo di un carrello.<br> 
 L'utente può acquistare uno o più pezzi di quel prodotto.<br>
-Il programma restituisce il recap dei prodotti acquistati<br>
+Il programma restituisce il recap dei prodotti acquistati.<br>
 Le tecnologie per realizzare questa applicazione sono: Python, flask, matplotlib, pandas, mysql.
 
 ENG:<br>
