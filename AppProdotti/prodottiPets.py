@@ -4,7 +4,7 @@ import mysql.connector  # importo il connettore
 from flask import Flask, request, redirect, url_for, session
 from matplotlib import pyplot as plt
 import io
-import pandas as pd #importo libreria panda
+import pandas as pd #importo libreria pandas
 
 
 # creo oggetto di tipo evento
