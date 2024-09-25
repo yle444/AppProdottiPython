@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestore</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+
+    </script>
+    <style>
+
+        body {
+            background-color: #9DCFE8;
+        }
+
+        .container {
+            background-color: white;
+            padding: 23px;
+            border-radius: 10px 10px 10px 10px;
+
+        }
+
+        #csv {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .select-wrapper input.select-dropdown {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<h4 class="center">Aggiungi un nuovo prodotto</h4>
+<div class="container">
+    <form action="/process" method="post">
+        <label>Inserisci il nome del prodotto: </label>
+        <input type="text" name="nome">
+        <br>
+        <label>Inserisci la marca del prodotto:</label>
+        <input type="text" name="marca">
+        <br>
+        <label>Inserisci il prezzo del prodotto:</label>
+        <input type="text" name="prezzo">
+        <br>
+        <label>Inserisci la categoria del prodotto:</label>
+        <input type="text" name="categoria">
+        <br>
+
+        <label>Inserisci l'immagine del prodotto:</label>
+        <input type="text" name="url">
+        <br>
+        <label>Inserisci i pezzi del prodotto:</label>
+        <input type="number" name="pezzi">
+        <br>
+
+        <input type="submit" value="Invia">
+    </form>
+</div>
+
+<h4 class="center">Rimuovi un prodotto</h4>
+<div class="container">
+
+    <form action="/remove" method="POST">
+
+        <label for="cars">Scegli il prodotto da rimuovere: </label>
+
+        <select name="prod" id="cars">
+
+            {% for prod in lista %}
+            <option value="{{prod[0]}}">{{prod[0]}}, {{prod[1]}}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <input type="submit" value="Rimuovi">
+
+    </form>
+</div>
+
+<h4 class="center">Cerca per categoria</h4>
+<div class="container">
+
+    <form action="/ricerca" method="POST">
+
+        <label for="cars">Scegli la categoria dei prodotti da ricercare:</label>
+
+        <select name="categoria">
+
+            {% for prod in listaS %}
+            <option value="{{prod}}"> {{prod}}</option>
+
+            {% endfor %}
+
+        </select>
+
+        <input type="submit" value="Cerca">
+
+    </form>
+</div>
+
+<h4 class="center">Aggiorna un nuovo prodotto</h4>
+<div class="container">
+
+    <form action="/updatePezzi" method="POST">
+
+        <label for="cars">Scegli il prodotto di cui vuoi aggiungere pezzi</label>
+
+        <select name="prodID" id="pezzi">
+
+            {% for prod in lista %}
+            <option value="{{prod[0]}}">{{prod[0]}}, {{prod[1]}}</option>
+
+            {% endfor %}
+
+        </select>
+        <input type="number" name="numPezzi" placeholder="Digita il numero dei pezzi">
+
+        <input type="submit" value="Aggiungi">
+
+    </form>
+</div>
+<div id="csv">
+    <h5 class="center">Vuoi scaricare i dati della tabella?</h5>
+    <a class="waves-effect waves-light btn-large center">Clicca qui</a>
+
+
+</div>
+
+
+<h4 class="center">Statistiche di vendita</h4>
+<div class="center">
+
+    <img src="{{ url_for('plot_png') }}" alt="Grafico combinato a Barre e Torta">
+</div>
+
+<h3 class="center">Dati di vendita</h3>
+<div class="container">
+    <table class="table striped centered highlight">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Marca</th>
+
+            <th scope="col">Pezzi in magazzino</th>
+            <th scope="col">Pezzi venduti</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pr in listaP %}
+            {% if pr[1]== prodottoMax %}
+        <tr style="background-color: yellow;">
+
+            {% elif pr[1]== prodottoMin %}
+        <tr style="background-color: palevioletred;">
+            {% else %}
+        <tr>
+      {% endif %}
+
+            <th scope="row">{{ pr[0] }}</th>
+            <td>{{ pr[1] }}</td>
+            <td>{{ pr[2] }}</td>
+            <td>{{ pr[3] }}</td>
+            <td>{{ pr[4] }}</td>
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+
+
+        img {
+
+            width: 150px;
+            object-fit: contain;
+
+        }
+
+        table td, table th {
+            border: 1px solid #ddd;
+
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <h3 class="center">Riepilogo dell'Acquisto</h3>
+
+    <table class="highlight centered">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Prezzo</th>
+            <th>Quantità</th>
+            <th>Immagine</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for p1 in lista %}
+        <tr>
+            <td>{{ p1.nome }}</td>
+            <td>{{ p1.marca }}</td>
+            <td>€ {{ p1.prezzo }}</td>
+            <td>{{ p1.getPezzi() }}</td>
+            <td><img src="{{p1.url}}"></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <h5>Totale da pagare: {{ somma }} €</h5>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

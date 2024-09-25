@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+
+
+        body {
+            background-color: #9DCFE8;
+        }
+
+        .container {
+            background-color: white;
+            padding: 23px;
+            border-radius: 10px 10px 10px 10px;
+
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h2 class="center">Prodotto inserito correttamente</h2>
+<div class="container">
+
+
+    <h3>Dettagli prodotto: </h3>
+    <p>
+        <strong>Nome:</strong> {{prod.nome}}
+    </p>
+    <p>
+        <strong>Marca:</strong> {{prod.marca}}
+    </p>
+    <p>
+        <strong>Prezzo: </strong>{{prod.prezzo}} €
+    </p>
+    <p>
+        <strong>Categoria:</strong> {{prod.categoria}}
+    </p>
+    <p>
+        <strong>Numero pezzi: </strong>{{prod.pezzi}}
+    </p>
+    <p>
+        <img src="{{prod.url}}">
+    </p>
+</div>
+</body>
+</html>

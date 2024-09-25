@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista prodotti</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+
+        body {
+            background-color: #9DCFE8;
+        }
+
+        .container {
+            background-color: white;
+            padding: 23px;
+            border-radius: 10px 10px 10px 10px;
+
+        }
+
+        img {
+            width: 150px !important;
+        }
+
+        th {
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<h2 class="center">Lista prodotti</h2>
+<div class="container">
+
+
+    <table class="centered striped highlight">
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Prezzo</th>
+            <th>Categoria</th>
+            <th>Immagine</th>
+            <th>Pezzi disponibili</th>
+
+
+        </tr>
+        {%
+        for prod in lista
+        %}
+        <tr>
+
+            <td>{{prod[0]}}</td>
+            <td>{{prod[1]}}</td>
+            <td>{{prod[2]}}</td>
+            <td>{{prod[3]}} </td>
+            <td>{{prod[4]}}</td>
+            <td><img src="{{prod[5]}}"></td>
+            <td>{{prod[6]}}</td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</div>
+</body>
+</html>
