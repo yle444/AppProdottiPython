@@ -6,7 +6,7 @@ Python application that simulates an ecommerce management system for pet product
 ![lato server](https://github.com/user-attachments/assets/4fbfbf5b-f5dc-4e62-9786-5ece057aa9d3)
 
 ITA:<br>
-Nella parte gestore abbbiamo la possibilità:<br>
+Nella parte gestore abbiamo la possibilità:<br>
 1 di inserire un nuovo prodotto.<br>
 2 visualizzare tutti i prodotti in base alla categoria.<br>
 ENG:<br>
